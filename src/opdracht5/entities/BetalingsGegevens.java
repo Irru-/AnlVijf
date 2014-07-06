@@ -5,11 +5,14 @@
  */
 package opdracht5.entities;
 
+import javax.persistence.MappedSuperclass;
+
 /**
  *
  * @author Nick
  */
-public class BetalingsGegevens {
+@MappedSuperclass
+public abstract class BetalingsGegevens {
 
     private String eigenaarNaam;
     private String nummer;

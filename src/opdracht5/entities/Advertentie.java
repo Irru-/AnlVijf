@@ -6,9 +6,15 @@
 package opdracht5.entities;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -20,7 +26,7 @@ public class Advertentie {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long ad_id;
     private String naam;
     private String beschrijving;
     private int startPrijs;
@@ -29,7 +35,15 @@ public class Advertentie {
 
     @ManyToOne
     private Gebruiker gebruiker;
-    
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name = "AD_CAT",
+            joinColumns = {
+                @JoinColumn(name = "ad_id")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "cat_id")})
+    private Set<Category> categories = new HashSet<Category>();
+
     public Advertentie() {
     }
 
@@ -41,20 +55,6 @@ public class Advertentie {
         this.startPrijs = startPrijs;
         this.actief = actief;
         this.startDatum = startDatum;
-    }
-
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
     }
 
     /**
@@ -140,5 +140,33 @@ public class Advertentie {
     public void setGebruiker(Gebruiker gebruiker) {
         this.gebruiker = gebruiker;
     }
-    
+
+    /**
+     * @return the category
+     */
+    public Set<Category> getCategory() {
+        return categories;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(Category category) {
+        this.categories = categories;
+    }
+
+    /**
+     * @return the ad_id
+     */
+    public Long getAd_id() {
+        return ad_id;
+    }
+
+    /**
+     * @param ad_id the ad_id to set
+     */
+    public void setAd_id(Long ad_id) {
+        this.ad_id = ad_id;
+    }
+
 }

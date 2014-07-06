@@ -6,7 +6,6 @@
 package opdracht5.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -16,13 +15,14 @@ import javax.persistence.Id;
 @Entity
 public class Gebruiker {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
+    
+   
     private String voornaam;
     private String achternaam;
+    
+    @Id
     private String email;
+    
     private String wachtwoord;
 
     public Gebruiker() {
@@ -35,14 +35,6 @@ public class Gebruiker {
         this.achternaam = achternaam;
         this.email = email;
         this.wachtwoord = wachtwoord;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getVoornaam() {

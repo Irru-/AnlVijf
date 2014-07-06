@@ -55,6 +55,11 @@
 
         <mapping class="opdracht5.entities.Gebruiker"/>
 		<mapping class="opdracht5.entities.Advertentie"/>
+		<mapping class="opdracht5.entities.AdvertentieReactie"/>
+		<mapping class="opdracht5.entities.Bod"/>
+		<mapping class="opdracht5.entities.iDeal"/>
+		<mapping class="opdracht5.entities.CreditCard"/>
+		<mapping class="opdracht5.entities.Category"/>
 
     </session-factory>
 
