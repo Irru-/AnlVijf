@@ -5,10 +5,10 @@
  */
 package opdracht5;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
+import opdracht5.entities.Advertentie;
 import opdracht5.entities.Gebruiker;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -43,16 +43,36 @@ public class App {
         
         session.beginTransaction();
         
-        saveGebruiker(session);
+        casusEen(session);
+        casusTwee(session);
+        casusDrie(session);
+        casusVier(session);
         
         session.getTransaction().commit();
         
         sessionFactory.close();       
     }
     
-    private static void saveGebruiker(Session session){
+    private static void casusEen(Session session){   
+        Date d = new Date();
+        Advertentie a = new Advertentie ("Auto", "Leuke Auto", 400, true, d);
         Gebruiker g = new Gebruiker ("Nick", "Gobee", "a@a.nl", "1234");
+        
+        a.setGebruiker(g);
         session.save(g);
+        session.save(a);
+    }
+    
+    private static void casusTwee(Session session){
+        
+    }
+    
+    private static void casusDrie(Session session){
+        
+    }
+    
+    private static void casusVier(Session session){
+        
     }
 
 }

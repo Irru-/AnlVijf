@@ -19,6 +19,7 @@ public class Gebruiker {
     @Id
     @GeneratedValue
     private Long id;
+
     private String voornaam;
     private String achternaam;
     private String email;
@@ -59,7 +60,7 @@ public class Gebruiker {
     public void setAchternaam(String achternaam) {
         this.achternaam = achternaam;
     }
-    
+
     public String getEmail() {
         return email;
     }
@@ -67,7 +68,7 @@ public class Gebruiker {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public String getWachtwoord() {
         return wachtwoord;
     }

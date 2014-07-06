@@ -54,6 +54,7 @@
         <property name="hbm2ddl.auto">create</property>
 
         <mapping class="opdracht5.entities.Gebruiker"/>
+		<mapping class="opdracht5.entities.Advertentie"/>
 
     </session-factory>
 
